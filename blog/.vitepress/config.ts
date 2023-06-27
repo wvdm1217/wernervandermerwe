@@ -26,5 +26,5 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/wvdm1217' }
     ]
   },
-  base: "wvdm1217.github.io.wernervandermerwe"
+  base: "/wernervandermerwe/"
 })
