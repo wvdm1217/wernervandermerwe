@@ -25,5 +25,6 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wvdm1217' }
     ]
-  }
+  },
+  base: "wvdm1217.github.io.wernervandermerwe"
 })
