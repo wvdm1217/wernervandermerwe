@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Werner van der Merwe - Blog"
   text: "In this blog, I share my insights, tutorials, and experiences in the world of programming."
-  tagline: My great project tagline
+  tagline: Here I will discuss programming, machine learning and cloud computing.
   actions:
     - theme: brand
       text: Markdown Examples

@@ -2,12 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Werner van der Merwe - Blog",
-  description: "In this blog, I share my insights, tutorials, and experiences in the world of programming.",
+  title: "Werner van der Merwe",
+  description: "In this blog, I share my insights, tutorials, and experiences in the world of programming and machine learning.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'About', link: '/about' },
       { text: 'Examples', link: '/markdown-examples' }
     ],
 
@@ -22,7 +23,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/wvdm1217' }
     ]
   }
 })
