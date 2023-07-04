@@ -7,7 +7,6 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
       { text: 'About', link: '/about' },
       { text: 'Blog', link: '/blog' }
     ],
@@ -16,11 +15,9 @@ export default defineConfig({
       {
         text: 'Blog',
         items: [
-          // { text: 'Markdown Examples', link: '/blog' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Introduction', link: '/blog' },
         ]
-      }
-      
+      }      
     ],
 
     socialLinks: [
@@ -28,5 +25,6 @@ export default defineConfig({
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/werner-van-der-merwe/' }
     ]
   },
-  base: "/"
+  base: "/",
+  lastUpdated: true
 })
