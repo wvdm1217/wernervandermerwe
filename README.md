@@ -35,7 +35,7 @@ To get started with the codebase, follow the steps below:
 4. Start the local development server:
 
    ```shell
-   npm run dev
+   npm run docs:dev
    ```
 
 This will start a local development server and provide you with a URL where you can preview your blog.
