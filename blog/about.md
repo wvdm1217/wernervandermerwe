@@ -5,7 +5,7 @@ import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
   {
-    // avatar: 'https://www.github.com/yyx990803.png',
+     avatar: 'assets/profile.jpg',
     name: 'Werner van der Merwe',
     title: 'Machine Learning Engineer',
     links: [
