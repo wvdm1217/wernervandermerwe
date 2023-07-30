@@ -23,7 +23,8 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wvdm1217' },
-      { icon: 'linkedin', link: 'https://www.linkedin.com/in/werner-van-der-merwe/' }
+      { icon: 'linkedin', link: 'https://www.linkedin.com/in/werner-van-der-merwe/' },
+      { icon: 'twitter', link: 'https://twitter.com/WernervanderMe6'}
     ]
   },
   base: "/",
