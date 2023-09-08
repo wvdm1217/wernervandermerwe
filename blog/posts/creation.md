@@ -4,7 +4,7 @@ date: 2023-07-05
 number: 2
 ---
 
-# {{ $frontmatter.title }}
+<!-- # {{ $frontmatter.title }}
 
-{{ new Date($frontmatter.date).toISOString().split('T')[0] }}
+{{ new Date($frontmatter.date).toISOString().split('T')[0] }} -->
 

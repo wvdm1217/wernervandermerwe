@@ -27,5 +27,7 @@ features:
   - icon: ☁️
     title: Cloud Computing
     details: My current role has me deep diving into Azure, and I am loving it.
+
+index: true
 ---
 

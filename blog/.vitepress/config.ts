@@ -16,7 +16,7 @@ export default defineConfig({
         text: 'Blog',
         items: [
           { text: 'Introduction', link: '/blog' },
-          { text: 'The Creation', link: '/creation' }
+          { text: 'The Creation', link: 'posts/creation' }
         ]
       }      
     ],
@@ -28,5 +28,5 @@ export default defineConfig({
     ]
   },
   base: "/",
-  lastUpdated: true
+  // lastUpdated: true
 })
