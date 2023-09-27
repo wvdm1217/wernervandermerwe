@@ -18,4 +18,4 @@ My hope is this does not become a dormant mess of scribbles that has not been to
 
 ## Posts
 
-1. [The Creation](/posts/creation)
+1. [The Creation](/posts/2023-09-08-creation)
