@@ -16,7 +16,7 @@ export default defineConfig({
         text: 'Blog',
         items: [
           { text: 'Introduction', link: '/blog' },
-          { text: 'The Creation', link: 'posts/creation' }
+          { text: 'The Creation', link: '/posts/2023-09-08-creation' }
         ]
       }      
     ],
