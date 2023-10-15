@@ -1,29 +1,15 @@
 {
-    "name": "Node.js",
-  
-    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
-  
-    // Features to add to the dev container. More info: https://containers.dev/features.
-    // "features": {},
-  
-    "customizations": {
-      "vscode": {
-        "settings": {},
-        "extensions": ["streetsidesoftware.code-spell-checker"]
-      }
-    },
-  
-    // "forwardPorts": [3000],
-  
-    "portsAttributes": {
-      "3000": {
-        "label": "Hello Remote World",
-        "onAutoForward": "notify"
-      }
-    },
-  
-    "postCreateCommand": "npm install"
-  
-    // "remoteUser": "root"
-  }
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install",
+  "postStartCommand": "npm run docs:dev"
+}
