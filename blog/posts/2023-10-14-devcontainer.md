@@ -14,13 +14,13 @@ Gone are the days of hours of system setup to get a build to run.
 
 Yet when I wanted to open my websites I realised I don't have [Node.js](https://nodejs.org/en) or any of my project dependencies installed yet. 
 Taking the two minutes this would require every time I format my PC, every odd year, is tedious and sucks.
-Controlling node versions for each project sucks even more([nvm](https://github.com/nvm-sh/nvm)makes it slightly more bearable).
+Controlling node versions for each project sucks even more ([nvm](https://github.com/nvm-sh/nvm) makes it slightly more bearable).
 
 What if the system setup ships with the project itself?
 Further, what if this is in the form of a nicely packed Docker image?
 In comes development containers or [dev containers](https://code.visualstudio.com/docs/devcontainers/containers) for short. 
 
-## Why change?
+## Why Change?
 
 For most of my personal development I make use of [WSL](https://learn.microsoft.com/en-us/windows/wsl/) on my Windows machine.
 This allows me to use an Ubuntu distribution where I can easily install all my needed dependencies in isolation from my main OS.
@@ -49,7 +49,7 @@ This project requires you to setup Docker and VS Code to run dev containers.
 2. After installation install the `Dev Containers` and `Docker` extensions.
 3. You can open up a sample dev container to see that it is working.
 
-## Creating the dev container
+## Creating the Dev Container
 
 VS Code makes use of a `.devcontainer` and a setup file therein, `devcontainer.json`, to configure a development container.
 If it finds such a file it automatically asks if you want to reopen the window from a dev container.
@@ -87,7 +87,7 @@ I can now open up my project using a dev container and node is installed and rea
 All of my project dependencies are installed and the website is served automatically on image startup. 
 This is quite easy to do and there are many prebuilt images to suit your project.
 
-### Potential issues
+### Potential Issues
 
 Note that if a repository was initialised on windows it might be necessary to include a `.gitattributes` file as follow.
 ```
@@ -103,11 +103,11 @@ Check that docker is running on your system using,
 docker --version
 ```
 
-## Future enhancements
+## Future Enhancements
 
 What if we want more customizability in our dev container? 
 We can do this through the use of a Dockerfile to create a custom Docker image.
-This allow the setup of more complex build and installation steps.
+This allows the setup of more complex build and installation steps.
 This is done by replacing the image configuration with a build configuration.
 ```json
 //"image": "mcr.microsoft.com/devcontainers/javascript-node",
@@ -134,7 +134,7 @@ Here is an example from the Github repo for [devcontainer features](https://gith
 ```
 In this example the `go` and `docker-in-docker` features are included in the dev container.
 
-## Closing remarks
+## Closing Remarks
 
 Using dev containers allows for consistency in development, in the same manner that containers introduced consistency for builds.
 This benefits our development greatly, especially when working on collaborative projects.
