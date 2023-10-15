@@ -20,11 +20,15 @@ What if the system setup ships with the project itself?
 Further, what if this is in the form of a nicely packed Docker image?
 In comes development containers or [dev containers](https://code.visualstudio.com/docs/devcontainers/containers) for short. 
 
+
+
 ## Why change?
 
 For most of my personal development I make use of [WSL](https://learn.microsoft.com/en-us/windows/wsl/) on my Windows machine.
 This allows me to use an Ubuntu distribution where I can easily install all my needed dependencies in isolation from my main OS.
 This isolation has increased my efficiency and reduced the heartache that comes from installing software on Windows, despite the best efforts of [WinGet](https://github.com/microsoft/winget-cli).
+
+![Dev Containers](./../assets/devcontainer.png)
 
 Devcontainers seamlessly integrates with VS Code to offer a development experience out of a project specific Docker image.
 This is exactly what I want and need.
