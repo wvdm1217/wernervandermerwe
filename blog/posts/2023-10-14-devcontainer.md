@@ -14,7 +14,7 @@ Gone are the days of hours of system setup to get a build to run.
 
 Yet when I wanted to open my websites I realised I don't have [Node.js](https://nodejs.org/en) or any of my project dependencies installed yet. 
 Taking the two minutes this would require every time I format my PC, every odd year, is tedious and sucks.
-Controlling node versions for each project sucks even more([nvm](makes it slightly more bearable)).
+Controlling node versions for each project sucks even more([nvm](https://github.com/nvm-sh/nvm)makes it slightly more bearable).
 
 What if the system setup ships with the project itself?
 Further, what if this is in the form of a nicely packed Docker image?
