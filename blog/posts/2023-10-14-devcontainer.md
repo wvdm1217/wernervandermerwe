@@ -20,8 +20,6 @@ What if the system setup ships with the project itself?
 Further, what if this is in the form of a nicely packed Docker image?
 In comes development containers or [dev containers](https://code.visualstudio.com/docs/devcontainers/containers) for short. 
 
-
-
 ## Why change?
 
 For most of my personal development I make use of [WSL](https://learn.microsoft.com/en-us/windows/wsl/) on my Windows machine.
@@ -30,7 +28,7 @@ This isolation has increased my efficiency and reduced the heartache that comes 
 
 ![Dev Containers](./../assets/devcontainer.png)
 
-Devcontainers seamlessly integrates with VS Code to offer a development experience out of a project specific Docker image.
+Dev containers seamlessly integrates with VS Code to offer a development experience out of a project specific Docker image.
 This is exactly what I want and need.
 This gives the ability to setup a project once for everyone that will use it into the future. 
 There are startup time costs and hardware requirements to be able to do this, but most developers would not find this a hindrance given the benefits.
@@ -44,7 +42,6 @@ This project requires you to setup Docker and VS Code to run dev containers.
 1. Create an account at [Docker](https://hub.docker.com/) (if you are screaming about their open source betrayal, go to [podman](https://podman.io/) instead).
 2. Install [Docker Desktop](https://docs.docker.com/desktop/)
 3. Open Docker Desktop, accept the terms and conditions and log in with your account.
-4. 
 
 ### Visual Studio Code Dev Containers Extension
 
