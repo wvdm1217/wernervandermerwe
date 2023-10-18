@@ -2,11 +2,8 @@
 title: 'Using a Dev Container for Development' 
 date: 2023-10-14
 url: 'devcontainer'
+layout: 'doc'
 ---
-
-# {{ $frontmatter.title }}
-
-{{ new Date($frontmatter.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) }}
 
 Docker has been revolutionary for the software industry.
 It has made the separation of hardware and system possible.
