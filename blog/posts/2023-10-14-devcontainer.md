@@ -5,6 +5,8 @@ url: 'devcontainer'
 layout: 'doc'
 ---
 
+![Dev Container Art](./../assets/devcontainer-art.jpg)
+
 Docker has been revolutionary for the software industry.
 It has made the separation of hardware and system possible.
 Gone are the days of hours of system setup to get a build to run.
@@ -137,3 +139,9 @@ Using dev containers allows for consistency in development, in the same manner t
 This benefits our development greatly, especially when working on collaborative projects.
 This allows for a singular and isolated project setup, that can be used by anyone, everywhere that ships with the project itself.
 I will definitely be using this for most of my projects going forward, and hope some of you do too! 
+
+## References
+
+- https://containers.dev/
+- https://github.com/devcontainers
+- https://code.visualstudio.com/docs/devcontainers/containers
