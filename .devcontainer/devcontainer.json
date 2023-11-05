@@ -8,7 +8,10 @@
 		"streetsidesoftware.code-spell-checker",
 		"ms-azuretools.vscode-docker",
 		"dbaeumer.vscode-eslint",
-		"Vue.volar"
+		"Vue.volar",
+		"ms-vscode.azure-account",
+		"ms-azuretools.vscode-azureresourcegroups",
+		"ms-azuretools.vscode-azurestaticwebapps"
 	]
     }
   },
