@@ -1,9 +1,8 @@
 ---
 title: Introduction
 date: 2023-07-05
+layout: 'doc'
 ---
-
-# Introduction
 
 This is the space I want to use to build and share ideas related to my career and interests.
 Topics covered will include machine learning, software development and cloud computing.
