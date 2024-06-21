@@ -9,11 +9,12 @@ layout: 'doc'
 
 I built a web scrapper to help me find an apartment on [Property24](https://www.property24.com/).
 It started off as a bash script that lived in my terminal, then it became a tiny Alpine container running on my PC, somewhere I deployed it to the cloud and eventually it found an unlikely home on my Android phone.
-I also accidentally got my Telegram account banned, my work complex's IP temporarily blocked by Naspers and I Pavloved myself into checking rental properties whenever I get a phone notification.
+I also accidentally got my Telegram account banned, my office's IP temporarily blocked and I developed a Pavlovian urge to check rental properties whenever I get a phone notification.
 
 Also, if you work for Property24, don't sue, you guys are great.
 After many iterations and months, I found an apartment and the solution worked exceedingly well.
 Every time a new apartment was listed, I got a notification on my phone and the app is opened on the new property automatically or when I clicked the notification.
+Refer to the reference script at the bottom of the post for the final implementation.
 
 ## Moving
 
@@ -48,8 +49,6 @@ I used `jq` to parse JSON in bash.
 The count was saved in a plain text file, `count.txt`, and on a change the new count would be printed to my terminal. 
 Simple I know.
 
-
-
 ## Finding the Script a Home
 
 The script now needed some dedicated compute to run on.
@@ -63,8 +62,8 @@ Having a process run all the time was not ideal, but it was the simplist.
 
 ### Docker
 
-My laptop would not always be available, so I needed a solution that I could run all hours of the day and to .
-I was hoping to run it on 
+My laptop would not always be available, so I needed a solution that I could run all hours of the day and to receive notifications at any time.
+The `Dockerfile` installs `curl` and `jq` and runs the bash script.
 
 ```Dockerfile
 FROM alpine
@@ -111,25 +110,144 @@ function send_message() {
 }
 ```
 
-At this point I was content
+At this point I was content with receiving notifications on telegram.
 I had created a process that could monitor properties for me and send notifications to my phone.
 
 Then everything changed when I woke up the next day, locked out of my Telegram account.
 
 ![Telegram Ban](./../assets/telegram.jpg)
 
+Why? I don't know. I am still banned.
+
 ### Termux
+
+With a need for a new notification mechanism in came [Termux](https://termux.dev/en/).
+Termux is a Android terminal emulator.
+It has the ability to send notifications and open applications through [Termux:API](https://wiki.termux.com/wiki/Termux:API).
+It also has the benefit of being able to run bash scripts.
+A phone is also always on and always connected.
+
+This new setup replaced the previous Docker container and Telegram notifications.
+It was as simple as setting up a bash script with a cronjob that runs every minute.
+
+```bash
+crontab -e
+```
+
+```bash
+* * * * * ~/script.sh
+```
+
+Setting up a termux notification is done as follows,
+
+Termux can open a URL for you using,
+
+```bash
+termux-open-url "$url";
+```
+
+You can set the Property24 app as the default app to open links to the site.
+Doing this means that Termux will actually open the Property24 App.
+
+To leave notifications for multiple properties you can run the following,
+
+```bash
+action="termux-open-url $url";
+
+termux-notification \
+--title "Property24" \
+--content "$url" \
+--button1 "Open" \
+--button1-action "$action" \
+--id "p24$url";
+```
 
 ## Web Scrapping
 
+Being notified any time a new property gets uploaded is great. 
+The next step is being sent the specific property that gets uploaded.
+There is no API to get the property list and it would need to be web scrapped.
+
+Calling the web page returns the `html` for the page,
+```
+curl --silent \
+--location "https://www.property24.com/to-rent/stellenbosch/western-cape/459/p$page?PropertyCategory=House%2cApartmentOrFlat%2cTownhouse"
+```
+
+The scraping of the site is done by looking for the unique property identifier, `data-listing-number` using the following script,
+
+```bash
+page=1
+response=$(
+    curl --silent \
+    --location "https://www.property24.com/to-rent/stellenbosch/western-cape/459/p$page?PropertyCategory=House%2cApartmentOrFlat%2cTownhouse"
+)
+
+list=$(grep -o 'data-listing-number="[0-9]*"' <<< "$response" | cut -d '"' -f 2)
+```
+
+This list contains replicas and needs to be reduced to a set.
+Finding the property URL given each listing number in the set is then done as follows,
+```bash
+number=114566509
+base_url="https://www.property24.com"
+url=$base_url$( grep "/to-rent/.*/$number" <<< "$response" | cut -d '"' -f 2)
+```
+
 ### The Trap
 
-### The
+The list of property URLS contained 21 properties even if the `html` only showed 20 properties per page.
+
+<iframe src="https://giphy.com/embed/Z1LYiyIPhnG9O" width="480" height="259" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+When I clicked on the links in the page it seemed to be working. 
+One of the links however caused everything to stop working.
+I had zero connection to Property24 and any Naspers site.
+
+The must have blacklisted my IP.
+To make it a bit worse neither did anyone in my office.
+The blacklisting was only temporary and resolved after an hour.
+At least now you know how to get your co-workers off of News24 when they should be working.
+
+### The Solution
+
+Upon inspection the list of 21 property URLS was a list of 20 valid URLs that lead to a property listing and one, which looks real, but that gets you blacklisted.
+It looks like a historic link that gets used since nothing in the link gives it away as a fake link.
+
+If you scrape the page a second time you now get 21 URLs, with 20 having appeared in the previous list and the trap URL being different.
+The intersection of the first and second set gives a set of 20 valid URLs.
+
+```bash
+array1=( $first_list )
+array2=( $second_list )
+common_numbers=()
+
+for num1 in "${array1[@]}"; do
+    for num2 in "${array2[@]}"; do
+        if [[ "$num1" = "$num2" ]]; then
+            if [[ ! " ${common_numbers[@]} " =~ " $num1 " ]]; then
+                common_numbers+=("$num1")
+            fi
+            break
+        fi
+    done
+done
+```
+
+The list of all properties is now within grasp by iterating over all pages.
+This list is saved every time a new property gets added or deleted using the count scraping method.
+This saves computation since it is not necessary to scrape the web page every minute, only every minute that the count changed.
+The difference between the old and new sets of URLs are the newly uploaded properties.
+
 
 ## Conclusion
 
+This was a long iterative side project. 
+I could have never predicted the final working bash web scrapper.
+Unlike many side projects this ended up not being a complete waste of time.
+The end result of finding the perfect apartment meant it was all worth it.
 
-## References
+## References Script
 
 - 
 ```
