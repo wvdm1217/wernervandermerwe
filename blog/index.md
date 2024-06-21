@@ -26,7 +26,7 @@ features:
     details: Following and developing proper engineering principles and processes is core to everything I do. 
   - icon: ☁️
     title: Cloud Computing
-    details: My current role has me deep diving into Azure, and I am loving it.
+    details: I have in depth experience with Azure and Google Cloud and I am always looking for new ways to leverage cloud technologies.
 
 index: true
 ---

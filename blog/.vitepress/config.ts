@@ -17,7 +17,8 @@ export default defineConfig({
         items: [
           { text: 'Introduction', link: '/blog' },
           { text: 'The Creation', link: '/posts/2023-09-08-creation' },
-          { text:"Dev Container", link: '/posts/2023-10-14-devcontainer'}
+          { text:"Dev Container", link: '/posts/2023-10-14-devcontainer'},
+          { text: 'Property Scrapper', link: '/posts/2024-03-18-property-scrapper' },
         ]
       }      
     ],
