@@ -1,5 +1,5 @@
 ---
-title: 'A Property24 Scrapper' 
+title: 'Property24 Web Scrapper' 
 date: 2024-03-18
 url: 'property-scrapper'
 layout: 'doc'
@@ -9,7 +9,7 @@ layout: 'doc'
 
 I built a web scrapper to help me find an apartment on [Property24](https://www.property24.com/).
 It started off as a bash script that lived in my terminal, then it became a tiny Alpine container running on my PC, somewhere I deployed it to the cloud and eventually it found an unlikely home on my Android phone.
-I also accidentally got my Telegram account banned, my office's IP temporarily blocked and I developed a Pavlovian urge to check rental properties whenever I get a phone notification.
+I also accidentally got my Telegram account banned, my office's IP temporarily blocked and I developed a Pavlovian urge to check rental properties whenever I got a phone notification.
 
 Also, if you work for Property24, don't sue, you guys are great.
 After many iterations and months, I found an apartment and the solution worked exceedingly well.
@@ -51,14 +51,14 @@ Simple I know.
 
 ## Finding the Script a Home
 
-The script now needed some dedicated compute to run on.
+The sampling script now needed some dedicated compute to run on.
+The biggest challenge of this project was finding a place to run a workload 24/7 for free.
 
 ### Terminal
 
 There were two versions of my terminal script. 
 One that has a never ending while loop and sleep timer and the other that runs as a cron job.
-Having a process run all the time was not ideal, but it was the simplist.
-
+Having a process run all the time was not ideal, but it was the simplest.
 
 ### Docker
 
@@ -81,7 +81,15 @@ This container was miniscule.
 It is only `13MB` in size and uses `824KB` of memory.
 I could probably run this thing on my fridge or my microwave.
 
+### Cloud
+
+I looked into running this container in the cloud somewhere. 
+I could not find a service that allows for very small stateful applications to be run for free.
+Azure Container Apps has a generous free tier, but it would still result in a few dollars of spend a month.
+
 ## Notifications
+
+Setting up notifications for the application is straight forward using the [Telegram Bot API](https://core.telegram.org/bots/api).
 
 ### Telegram
 
@@ -113,7 +121,7 @@ function send_message() {
 At this point I was content with receiving notifications on telegram.
 I had created a process that could monitor properties for me and send notifications to my phone.
 
-Then everything changed when I woke up the next day, locked out of my Telegram account.
+I woke up the next day, locked out of my Telegram account.
 
 ![Telegram Ban](./../assets/telegram.jpg)
 
@@ -138,8 +146,6 @@ crontab -e
 * * * * * ~/script.sh
 ```
 
-Setting up a termux notification is done as follows,
-
 Termux can open a URL for you using,
 
 ```bash
@@ -148,7 +154,6 @@ termux-open-url "$url";
 
 You can set the Property24 app as the default app to open links to the site.
 Doing this means that Termux will actually open the Property24 App.
-
 To leave notifications for multiple properties you can run the following,
 
 ```bash
