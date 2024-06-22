@@ -1,13 +1,29 @@
-# About Me
+---
+layout: 'page'
+---
 
 <script setup>
-import { VPTeamMembers } from 'vitepress/theme'
+import {
+  VPTeamPage,
+  VPTeamPageTitle,
+  VPTeamPageSection,
+  VPTeamMembers
+} from 'vitepress/theme'
+
+const about = `I have a deep-rooted enthusiasm for problem solving and a love for collaboration. 
+I am committed to building innovative machine learning solutions that run at scale.
+My background is in electronic engineering, including a research-based masters in speech and language technologies. 
+My focus areas are machine learning, software engineering and cloud computing.`
+
 
 const members = [
   {
-    avatar: './assets/profile.jpg',
+    avatar: './profile.jpg',
     name: 'Werner van der Merwe',
     title: 'Machine Learning Engineer',
+    desc: about,
+    org: 'Spatialedge',
+    orgLink: 'https://spatialedge.ai',
     links: [
       { icon: 'github', link: 'https://github.com/wvdm1217' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/in/werner-van-der-merwe/' },
@@ -15,9 +31,34 @@ const members = [
     ]
   }
 ]
+
+
 </script>
 
-<VPTeamMembers size="small" :members="members" />
 
+<!-- <VPTeamMembers size="small" :members="members" /> -->
 
-I am a machine learning engineer driven by a deep-rooted enthusiasm for problem solving and a love for collaborating with individuals. With a background in electronic engineering, including a research-based masters in machine learning, I am focused on machine learning, software engineering and cloud computing. I constantly strive to stay at the forefront of technological advancements. By combining my expertise in these areas, I am committed to creating innovative solutions that address complex challenges and drive meaningful impact. I thrive in collaborative environments, leveraging my technical prowess and interpersonal skills to foster productive partnerships and deliver cutting-edge solutions that meet and exceed expectations.
+<VPTeamPage >
+  <VPTeamPageTitle>
+    <template #title>
+      About Me
+    </template>
+    <!-- <template #lead>
+      {{ about }}
+    </template> -->
+  </VPTeamPageTitle>
+  <VPTeamMembers
+    :members="members"
+  />
+  <!-- <VPTeamPageSection>
+    <template #members>
+      <VPTeamMembers
+        :members="members"
+      />
+    </template>
+    <template #lead>
+      {{ about }}
+    </template>
+  </VPTeamPageSection> -->
+</VPTeamPage>
+
