@@ -10,7 +10,8 @@
         "dbaeumer.vscode-eslint",
         "Vue.volar",
         "GitHub.copilot",
-        "GitHub.copilot-chat"
+        "GitHub.copilot-chat",
+        "github.vscode-github-actions"
       ]
     }
   },

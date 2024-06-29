@@ -1,4 +1,6 @@
-# My Programming Blog
+# wernervandermerwe.com
+
+[![Deploy](https://github.com/wvdm1217/wernervandermerwe/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/wvdm1217/wernervandermerwe/actions/workflows/deploy.yml)
 
 Welcome to my programming blog repository! This repository contains the source code and content for my personal programming blog, hosted on Microsoft Azure using Vitepress. In this blog, I share my insights, tutorials, and experiences in the world of programming.
 
