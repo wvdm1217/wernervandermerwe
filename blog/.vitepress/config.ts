@@ -30,5 +30,6 @@ export default defineConfig({
     ]
   },
   base: "/",
+  cleanUrls: true
   // lastUpdated: true
 })
