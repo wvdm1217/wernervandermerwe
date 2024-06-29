@@ -12,7 +12,7 @@ const { Layout } = DefaultTheme
         {{ $frontmatter.title }}
       </h1>
       <p>
-        {{ new Date($frontmatter.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}}
+        {{ $frontmatter.date ? new Date($frontmatter.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '' }}
       </p>
     </template>
   </Layout>
